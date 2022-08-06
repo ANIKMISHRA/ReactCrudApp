@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "user": "Joy",
+      "date": "05 August 2022",
+      "id": 1
+    },
+    {
+      "user": "Jordan Obroi",
+      "date": "05 August 2022",
+      "id": 2
+    },
+    {
+      "user": "James",
+      "date": "05 August 2022",
+      "id": 3
+    },
+    {
+      "user": "Jolly",
+      "date": "05 August 2022",
+      "id": 4
+    },
+    {
+      "user": "Rohan",
+      "date": "05 August 2022",
+      "id": 5
+    },
+    {
+      "user": "Raina",
+      "date": "05 August 2022",
+      "id": 6
+    },
+    {
+      "user": "Aahan",
+      "date": "05 August 2022",
+      "id": 7
+    },
+    {
+      "user": "Rahul",
+      "date": "05 August 2022",
+      "id": 8
+    },
+    {
+      "user": "Rohit",
+      "date": "05 August 2022",
+      "id": 9
+    },
+    {
+      "user": "Ramesh",
+      "date": "05 August 2022",
+      "id": 10
+    },
+    {
+      "user": "Richa",
+      "date": "05 August 2022",
+      "id": 11
+    },
+    {
+      "user": "Remm",
+      "date": "05 August 2022",
+      "id": 12
+    },
+    {
+      "user": "Johny",
+      "date": "05 August 2022",
+      "id": 13
+    },
+    {
+      "user": "Julies",
+      "date": "05 August 2022",
+      "id": 14
+    },
+    {
+      "user": "Joy",
+      "date": "05 August 2022",
+      "id": 15
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
