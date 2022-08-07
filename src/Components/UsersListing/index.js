@@ -40,7 +40,7 @@ const UserList = () => {
         {/* Table */}
         <Table className="fw-light align-middle">
           <thead>
-            <tr className="bg-light">
+            <tr className="bg-light sticky-top">
               <td>S.NO</td>
               <td>USERS</td>
               <td>CREATED AT</td>
@@ -64,15 +64,17 @@ const UserList = () => {
             })}
           </tbody>
         </Table>
-        {/* Load More Button */}
-        <button
-          type="button"
-          className="btn btn-primary float-end"
-          variant="primary"
-          onClick={displayLimitedDataFunc}
-        >
-          Load More
-        </button>
+        <div className="text-center">
+          {/* Load More Button */}
+          <button
+            type="button"
+            className="btn btn-info"
+            variant="primary"
+            onClick={displayLimitedDataFunc}
+          >
+            LOAD MORE
+          </button>
+        </div>
       </div>
     </div>
   );

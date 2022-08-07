@@ -51,9 +51,9 @@ const ModalAddButtonFunc = () => {
 
   // Jsx
   return (
-    <div>
+    <div className="">
       {/* Add New User Button */}
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="info" onClick={handleShow}>
         ADD NEW USER
       </Button>
 

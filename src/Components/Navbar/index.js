@@ -3,7 +3,7 @@ import React from 'react';
 // Component Navbar
 import Navbar from 'react-bootstrap/Navbar';
 // React-icons
-import { FaLessThan } from 'react-icons/fa';
+import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 
 // Component ModalAddButtonFunc
 import ModalAddButtonFunc from '../ModalButtons/AddUser';
@@ -16,14 +16,16 @@ const Nav = () => {
   // Jsx
   return (
     // Navbar
-    <Navbar className="mx-4">
+    <Navbar className="mx-4 sticky-top">
       <Navbar.Brand
         href="/home"
         variant="secondary"
         className="justify-content-end align-middle"
       >
-        <FaLessThan />
-        WEBHOOKS
+        <span>
+          <MdOutlineArrowBackIosNew />
+        </span>
+        <span style={{ marginLeft: '25px' }}>WEBHOOKS</span>
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
