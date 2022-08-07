@@ -9,14 +9,13 @@ import { FaLessThan } from 'react-icons/fa';
 import ModalAddButtonFunc from '../ModalButtons/AddUser';
 
 /**
- * Navbar portion
+ * Navbar     portion
  * @returns node
  */
-const Nav = (props) => {
-  // Destructuring the props using props validation
-  const { datas, updatingDatas } = props || {};
+const Nav = () => {
   // Jsx
   return (
+    // Navbar
     <Navbar className="mx-4">
       <Navbar.Brand
         href="/home"
@@ -30,7 +29,7 @@ const Nav = (props) => {
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
           {/* ModalAddButtonFunc Component */}
-          <ModalAddButtonFunc datas={datas} updatingDatas={updatingDatas} />
+          <ModalAddButtonFunc />
         </Navbar.Text>
       </Navbar.Collapse>
     </Navbar>
