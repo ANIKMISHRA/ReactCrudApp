@@ -47,6 +47,7 @@
             "semi":2,
             "comma-dangle":0,
             "arrow-body-style": ["error", "always"],
-            "prettier/prettier": "error"
+            "prettier/prettier": "error",
+            "import/no-cycle": [2, { "maxDepth": 1 }]
     }
 }
