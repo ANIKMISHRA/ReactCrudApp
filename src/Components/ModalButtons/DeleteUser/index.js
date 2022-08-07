@@ -1,5 +1,5 @@
 // NPM Package
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 // Bootstrap's Components
 // use context
@@ -8,12 +8,18 @@ import Modal from 'react-bootstrap/Modal';
 // react-icons
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
+// Components
+import UserContext from '../../ContextApi/UserContext';
+
 /**
  * @returns node
  */
 const DeleteUser = (props) => {
   // State to decide when to show and not show modal
   const [show, setShow] = useState(false);
+
+  // setUserData storing the datails of login user
+  const { userDatas, setUserDatas } = useContext(UserContext);
 
   // Function to close the modal
   const handleClose = () => {
@@ -26,15 +32,15 @@ const DeleteUser = (props) => {
   };
 
   // Destructuring the porps using the props validation
-  const { id, datas, updatingDatas } = props || {};
+  const { id } = props || {};
 
   // This function will be call after clicking on prceed btn to delete the particular user.
   const deleteUserFunc = () => {
     axios.delete(`http://localhost:8000/users/${id}`).then(() => {
-      const newUpdatingDatas = datas.filter((user) => {
+      const newUpdatingDatas = userDatas.filter((user) => {
         return user.id !== id;
       });
-      updatingDatas(newUpdatingDatas);
+      setUserDatas(newUpdatingDatas);
     });
     setShow(false);
   };

@@ -1,17 +1,20 @@
 // NPM Packages
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 // React-Bootstrap Component
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
+// Components
+import UserContext from '../../ContextApi/UserContext';
+
 /**
  * @param {object} props
  * @returns node
  */
-const ModalAddButtonFunc = (props) => {
-  // Destructuring props using props validation
-  const { datas, updatingDatas } = props || {};
+const ModalAddButtonFunc = () => {
+  // setUserData storing the datails of login user
+  const { userDatas, setUserDatas } = useContext(UserContext);
 
   // State to decide when to show and not show modal
   const [show, setShow] = useState(false);
@@ -41,7 +44,7 @@ const ModalAddButtonFunc = (props) => {
   const addUserFunc = () => {
     axios.post('http://localhost:8000/users', userData).then((res) => {
       const addNewUserData = res.data;
-      updatingDatas([...datas, addNewUserData]);
+      setUserDatas([...userDatas, addNewUserData]);
     });
     setShow(false);
   };

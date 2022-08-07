@@ -1,9 +1,10 @@
 // NPM PACKAGE
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import axios from 'axios';
 
 // COMPONENT
 import UserList from './Components/UsersListing';
+import UserContext from './Components/ContextApi/UserContext';
 
 /**
  * @returns node
@@ -19,11 +20,21 @@ const App = () => {
     });
   }, []);
 
+  // useMemo hook stop the rerendring again and again
+  const userMemoisedDatas = useMemo(() => {
+    return {
+      userDatas,
+      setUserDatas,
+    };
+  });
+
   // Jsx
   return (
     // UserList Component
     <div>
-      <UserList datas={userDatas} updatingDatas={setUserDatas} />
+      <UserContext.Provider value={userMemoisedDatas}>
+        <UserList />
+      </UserContext.Provider>
     </div>
   );
 };

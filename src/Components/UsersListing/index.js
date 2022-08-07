@@ -1,24 +1,25 @@
 // NPM Packages
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 // React-Bootstrap's Components
 import Table from 'react-bootstrap/Table';
 
 // Components
 import DeleteUser from '../ModalButtons/DeleteUser/index';
 import Nav from '../Navbar/index';
+import UserContext from '../ContextApi/UserContext';
 /**
  *
  * @returns node
  */
-const UserList = (props) => {
-  // Destructuring the props using props validation
-  const { datas, updatingDatas } = props || {};
+const UserList = () => {
+  // setUserData storing the datails of login user
+  const { userDatas } = useContext(UserContext);
 
   // state to show the limited data.
   const [displayDataLimit, setDisplayDataLimit] = useState(8);
 
   // using sort method sorting data into descending order
-  const sortDatas = datas.sort((a, b) => {
+  const sortDatas = userDatas.sort((a, b) => {
     return a.id < b.id ? 1 : -1;
   });
 
@@ -34,7 +35,7 @@ const UserList = (props) => {
   return (
     <div>
       {/* Navbar Component  */}
-      <Nav datas={datas} updatingDatas={updatingDatas} />
+      <Nav />
       <div className=" position relative mx-3">
         {/* Table */}
         <Table className="fw-light align-middle">
@@ -56,11 +57,7 @@ const UserList = (props) => {
                   <td>{user.date}</td>
                   <td className="text-end">
                     {/* DeleteUser Componet */}
-                    <DeleteUser
-                      id={user.id}
-                      datas={datas}
-                      updatingDatas={updatingDatas}
-                    />
+                    <DeleteUser id={user.id} />
                   </td>
                 </tr>
               );
