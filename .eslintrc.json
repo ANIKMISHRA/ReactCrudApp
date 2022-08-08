@@ -25,11 +25,10 @@
     "import/no-named-as-default": "off",
     "import/export": "warn",
     "import/order": [
-      "error",
-      {
-        "groups": ["builtin", "external", "parent", "sibling", "index"],
-        "newlines-between": "always"
-      }
+        "error",
+        {
+            "groups": [["builtin", "external"]]
+        }
     ],
             "jsx-a11y/label-has-associated-control": [ 2, {
                 "labelComponents": ["CustomInputLabel"],
@@ -48,6 +47,7 @@
             "comma-dangle":0,
             "arrow-body-style": ["error", "always"],
             "prettier/prettier": "error",
-            "import/no-cycle": [2, { "maxDepth": 1 }]
+            "import/no-cycle": [2, { "maxDepth": 1 }],
+            "import/newline-after-import": ["error", { "count": 1 }]
     }
 }

@@ -1,21 +1,18 @@
 // NPM Packages
 import React, { useState, useContext } from 'react';
-import axios from 'axios';
-// React-Bootstrap Component
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
-// Components
-import UserContext from '../../ContextApi/UserContext';
+// React-Bootstrap Components
+import { Button, Modal } from 'react-bootstrap';
+
+// Component
+import UserContext from '../ContextApi/UserContext';
+import addUserFunc from '../../Services/Users';
 
 /**
  * @param {object} props
  * @returns node
  */
 const ModalAddButtonFunc = () => {
-  // setUserData storing the datails of login user
-  const { userDatas, setUserDatas } = useContext(UserContext);
-
   // State to decide when to show and not show modal
   const [show, setShow] = useState(false);
 
@@ -24,6 +21,9 @@ const ModalAddButtonFunc = () => {
     user: '',
     date: new Date().toLocaleDateString(),
   });
+
+  // setUserData storing the datails of login user
+  const { userDatas, setUserDatas } = useContext(UserContext);
 
   // Function to close the modal
   const handleClose = () => {
@@ -41,27 +41,23 @@ const ModalAddButtonFunc = () => {
   };
 
   // This function will be call after clicking on add btn to add new user.
-  const addUserFunc = () => {
-    axios.post('http://localhost:8000/users', userData).then((res) => {
-      const addNewUserData = res.data;
-      setUserDatas([...userDatas, addNewUserData]);
-    });
+  const addNewUserData = async () => {
+    const updatedUserData = await addUserFunc(userData);
+    setUserDatas([...userDatas, updatedUserData]);
     setShow(false);
   };
 
-  // Jsx
   return (
-    <div className="">
-      {/* Add New User Button */}
+    <div>
       <Button variant="info" onClick={handleShow}>
         ADD NEW USER
       </Button>
 
-      {/* Modal */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>ADDING USER</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <input
             className="form-control"
@@ -70,13 +66,13 @@ const ModalAddButtonFunc = () => {
             onChange={handleUserInput}
           />
         </Modal.Body>
+
         <Modal.Footer>
-          {/* Cancel Button */}
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          {/* Add Button */}
-          <Button variant="primary" onClick={addUserFunc}>
+
+          <Button variant="primary" onClick={addNewUserData}>
             Add
           </Button>
         </Modal.Footer>
@@ -85,5 +81,4 @@ const ModalAddButtonFunc = () => {
   );
 };
 
-// exporting to access the data in another componet by importing there.
 export default ModalAddButtonFunc;

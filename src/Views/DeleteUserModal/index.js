@@ -1,25 +1,28 @@
-// NPM Package
+// NPM Packages
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
+
 // Bootstrap's Components
-// use context
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-// react-icons
+import { Button, Modal } from 'react-bootstrap';
+
+// icon
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
-// Components
-import UserContext from '../../ContextApi/UserContext';
+// Component
+import UserContext from '../ContextApi/UserContext';
 
 /**
  * @returns node
  */
 const DeleteUser = (props) => {
-  // State to decide when to show and not show modal
+  // State to decide when to show and not to show modal
   const [show, setShow] = useState(false);
 
   // setUserData storing the datails of login user
   const { userDatas, setUserDatas } = useContext(UserContext);
+
+  // Destructuring the porps using the props validation
+  const { id } = props || {};
 
   // Function to close the modal
   const handleClose = () => {
@@ -31,12 +34,9 @@ const DeleteUser = (props) => {
     return setShow(true);
   };
 
-  // Destructuring the porps using the props validation
-  const { id } = props || {};
-
   // This function will be call after clicking on prceed btn to delete the particular user.
-  const deleteUserFunc = () => {
-    axios.delete(`http://localhost:8000/users/${id}`).then(() => {
+  const deleteUserFunc = async () => {
+    await axios.delete(`http://localhost:8000/users/${id}`).then(() => {
       const newUpdatingDatas = userDatas.filter((user) => {
         return user.id !== id;
       });
@@ -45,11 +45,9 @@ const DeleteUser = (props) => {
     setShow(false);
   };
 
-  // Jsx
   return (
-    // Modal
     <div>
-      {/* icon button */}
+      {/* Delete icon button */}
       <Button onClick={handleShow} className="btn btn-light">
         <RiDeleteBin6Line />
       </Button>
@@ -61,16 +59,15 @@ const DeleteUser = (props) => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          {/* Title */}
           <Modal.Title>DELETE USER</Modal.Title>
         </Modal.Header>
         <Modal.Body>Are You Sure ? You want to Delete the User.</Modal.Body>
+
         <Modal.Footer>
-          {/* Cancel Button */}
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          {/* Proceed Button */}
+
           <Button
             variant="primary"
             onClick={() => {
@@ -85,5 +82,4 @@ const DeleteUser = (props) => {
   );
 };
 
-// exporting to access the data in another componet by importing there.
 export default DeleteUser;

@@ -1,31 +1,37 @@
-// Package
+// NPM Package
 import React from 'react';
-// Component Navbar
-import Navbar from 'react-bootstrap/Navbar';
-// React-icons
-import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 
-// Component ModalAddButtonFunc
-import ModalAddButtonFunc from '../ModalButtons/AddUser';
+// React Bootstrap Component
+import Navbar from 'react-bootstrap/Navbar';
+
+// icon
+import { IoIosArrowBack } from 'react-icons/io';
+
+// Component
+import ModalAddButtonFunc from '../AddUserModal';
 
 /**
- * Navbar     portion
+ * Navbar portion
  * @returns node
  */
 const Nav = () => {
-  // Jsx
   return (
-    // Navbar
-    <Navbar className="mx-4 sticky-top">
+    <Navbar className="mx-4 sticky-top border-bottom">
       <Navbar.Brand
         href="/home"
         variant="secondary"
         className="justify-content-end align-middle"
       >
-        <span>
-          <MdOutlineArrowBackIosNew />
-        </span>
-        <span style={{ marginLeft: '25px' }}>WEBHOOKS</span>
+        <div className="fs-4">
+          {/* Arrow icon button */}
+          <span>
+            <IoIosArrowBack />
+          </span>
+
+          <span style={{ marginLeft: '10px' }} className="">
+            WEBHOOKS
+          </span>
+        </div>
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
@@ -38,5 +44,4 @@ const Nav = () => {
   );
 };
 
-// exporting to access the data in another componet by importing there.
 export default Nav;

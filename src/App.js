@@ -1,19 +1,21 @@
-// NPM PACKAGE
+// NPM PACKAGES
 import React, { useEffect, useState, useMemo } from 'react';
 import axios from 'axios';
 
-// COMPONENT
-import UserList from './Components/UsersListing';
-import UserContext from './Components/ContextApi/UserContext';
+// COMPONENTS
+import UsersList from './Views/UsersListing';
+import UserContext from './Views/ContextApi/UserContext';
+
+import './App.css';
 
 /**
  * @returns node
  */
 const App = () => {
-  // State To Store User Data
+  // State To Store Users Data
   const [userDatas, setUserDatas] = useState([]);
 
-  // useEffect hook using to get data from API
+  // useEffect hook used to get data from API
   useEffect(() => {
     axios.get('http://localhost:8000/users').then((res) => {
       setUserDatas(res.data);
@@ -28,16 +30,14 @@ const App = () => {
     };
   });
 
-  // Jsx
   return (
     // UserList Component
     <div>
       <UserContext.Provider value={userMemoisedDatas}>
-        <UserList />
+        <UsersList />
       </UserContext.Provider>
     </div>
   );
 };
 
-// exporting to access the data in another componet by importing there.
 export default App;
