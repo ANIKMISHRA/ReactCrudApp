@@ -1,3 +1,47 @@
 .ldbtn {
-  background-color: green;
+  background-color: #1180b5;
+  border: none;
+  font-weight: 500;
+  height: 40px;
+  width: 130px;
+}
+
+.addbtn {
+  background-color: #1180b5;
+  width: 160px;
+}
+
+.table-div {
+  margin: 25px;
+  margin-top: 70px;
+}
+
+.table-tr {
+  background-color: #f8f8f8;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+.table-tr2 {
+  font-size: 14px;
+}
+
+.usertd {
+  width: 542px;
+}
+
+.serialnotd {
+  width: 300px;
+}
+
+.nav-div {
+  height: 50px;
+}
+
+.nav-title {
+  margin-top: 10px;
+} 
+
+.hr-1 {
+  border-top: 1px solid gray;
 }

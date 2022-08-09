@@ -14,7 +14,7 @@ import UserContext from '../ContextApi/UserContext';
  */
 const UsersList = () => {
   // state to show the limited data.
-  const [displayDataLimit, setDisplayDataLimit] = useState(13);
+  const [displayDataLimit, setDisplayDataLimit] = useState(14);
 
   // userDatas storing the users datas
   const { userDatas } = useContext(UserContext);
@@ -29,17 +29,17 @@ const UsersList = () => {
 
   // this function will show set data on every click of Load More Button.
   const displayLimitedDataFunc = () => {
-    setDisplayDataLimit(displayDataLimit + 13);
+    setDisplayDataLimit(displayDataLimit + 14);
   };
 
   return (
     <>
       <div>
         <Nav />
-        <div className="">
-          <Table className="fw-normal align-middle mt-4">
+        <div className="table-div">
+          <Table className=" fw-normal align-middle mt-5">
             <thead>
-              <tr className="bg-light">
+              <tr className="table-tr">
                 <td>S.NO</td>
                 <td>USERS</td>
                 <td>CREATED AT</td>
@@ -49,9 +49,9 @@ const UsersList = () => {
             <tbody>
               {limitedDatas.map((user, index) => {
                 return (
-                  <tr key={user.id}>
-                    <td>{index + 1}</td>
-                    <td>{user.user}</td>
+                  <tr className="table-tr2" key={user.id}>
+                    <td className="serialnotd">{index + 1}</td>
+                    <td className="usertd">{user.user}</td>
                     <td>{user.date}</td>
                     <td className="text-end">
                       {/* DeleteUser Componet */}
@@ -68,7 +68,7 @@ const UsersList = () => {
         {/* Load More Button */}
         <button
           type="button"
-          className="ldbtn"
+          className="ldbtn text-white rounded"
           variant="primary"
           onClick={displayLimitedDataFunc}
         >

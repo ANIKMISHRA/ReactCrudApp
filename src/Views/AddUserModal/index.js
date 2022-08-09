@@ -49,7 +49,7 @@ const ModalAddButtonFunc = () => {
 
   return (
     <div>
-      <Button variant="info" onClick={handleShow}>
+      <Button className="addbtn" onClick={handleShow}>
         ADD NEW USER
       </Button>
 

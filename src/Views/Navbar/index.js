@@ -16,31 +16,34 @@ import ModalAddButtonFunc from '../AddUserModal';
  */
 const Nav = () => {
   return (
-    <Navbar className="mx-4 sticky-top border-bottom">
-      <Navbar.Brand
-        href="/home"
-        variant="secondary"
-        className="justify-content-end align-middle"
-      >
-        <div className="fs-4">
-          {/* Arrow icon button */}
-          <span>
-            <IoIosArrowBack />
-          </span>
+    <div className="nav-div sticky-top">
+      <Navbar className="mx-4 sticky-top align-middle ">
+        <Navbar.Brand
+          href="/home"
+          variant="secondary"
+          className="justify-content-end align-middle"
+        >
+          <div className="fs-4 nav-title">
+            {/* Arrow icon button */}
+            <span>
+              <IoIosArrowBack />
+            </span>
 
-          <span style={{ marginLeft: '10px' }} className="">
-            WEBHOOKS
-          </span>
-        </div>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-      <Navbar.Collapse className="justify-content-end">
-        <Navbar.Text>
-          {/* ModalAddButtonFunc Component */}
-          <ModalAddButtonFunc />
-        </Navbar.Text>
-      </Navbar.Collapse>
-    </Navbar>
+            <span style={{ marginLeft: '10px' }} className="">
+              WEBHOOKS
+            </span>
+          </div>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            {/* ModalAddButtonFunc Component */}
+            <ModalAddButtonFunc />
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Navbar>
+      <hr className=" hr-1 " />
+    </div>
   );
 };
 
